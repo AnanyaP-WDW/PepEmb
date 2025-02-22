@@ -1,5 +1,20 @@
 # Training a Peptide Encoder
 
+A transformer-based masked language model for learning amino acid sequence representations. The model uses self-attention mechanisms with custom gating and incorporates protein features for enhanced sequence understanding. Trained using BERT-style masking on peptide sequences to learn contextual amino acid embeddings.
+
+## Features
+- Custom encoder architecture with gated self-attention
+- Masked language modeling (MLM) pre-training 
+- Amino acid sequence embedding
+- Protein feature integration
+- BERT-style masking strategy (80/10/10)
+
+## Important Note
+The commands and code examples below may not be up to date. Please refer to the actual code files.
+
+## Getting Started
+
+### run
 in root:
 
 ```bash
@@ -287,7 +302,8 @@ Notes:
 This code snippet provides a foundation for training an encoder-only transformer model for peptide sequences using masked language learning. Remember to adjust parameters, handle edge cases, and use proper data splitting for validation and testing.
 
 
-references:
-1) peptide transofomer with amsking - https://academic.oup.com/bib/article/24/6/bbad399/7434461
+### References:
+1) Peptide transofomer with amsking - https://academic.oup.com/bib/article/24/6/bbad399/7434461
 code - https://github.com/horsepurve/DeepB3P3/blob/main/DeepB3P3.py
-2) peptideBert - https://pubs.acs.org/doi/10.1021/acs.jpclett.3c02398
+2) PeptideBert - https://pubs.acs.org/doi/10.1021/acs.jpclett.3c02398
+3) ProtTrans: Towards Cracking the Language of Life's Code Through Self-Supervised Deep Learning and High Performance Computing - (https://arxiv.org/abs/2007.06225)
