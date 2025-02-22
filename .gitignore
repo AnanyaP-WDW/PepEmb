@@ -1,0 +1,7 @@
+venv/
+env/
+peptide_data/
+__pycache__/
+checkpoints/
+.DS_Store
+.cursorignore
