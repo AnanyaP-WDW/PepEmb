@@ -7,6 +7,7 @@ import numpy as np
 from pathlib import Path
 import json
 from tqdm import tqdm
+import gc
 
 class EarlyStopping:
     def __init__(self, patience: int = 7, min_delta: float = 0):
@@ -47,6 +48,8 @@ def train_epoch(
     total_loss = 0
     total_accuracy = 0
     steps = 0
+
+    clear_memory()
     
     progress_bar = tqdm(train_loader, desc="Training")
     
@@ -108,6 +111,8 @@ def evaluate(
     total_loss = 0
     total_accuracy = 0
     steps = 0
+
+    clear_memory()
     
     progress_bar = tqdm(val_loader, desc="Evaluating")
     
@@ -223,6 +228,22 @@ def train(
     
     return history
 
+def clear_memory():
+    """Clear GPU and CPU memory, cache, and garbage collect"""
+    # Clear GPU memory
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.reset_peak_memory_stats()
+        
+    # Clear CPU memory
+    gc.collect()
+    
+    # Optional: Clear CUDA memory fragments
+    if torch.cuda.is_available():
+        torch.cuda.synchronize()
+
+
+
 if __name__ == "__main__":
     from architecture import CustomPeptideEncoder, MLMPeptideModel
     from dataloader import create_peptide_dataloaders
@@ -275,8 +296,10 @@ if __name__ == "__main__":
         val_loader=val_loader,
         optimizer=optimizer,
         scheduler=scheduler,
-        num_epochs=2,
+        num_epochs=50,
         checkpoint_dir='checkpoints',
         grad_accum_steps=4,
         patience=7
     )
+
+    clear_memory()
