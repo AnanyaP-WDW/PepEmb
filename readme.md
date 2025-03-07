@@ -303,7 +303,7 @@ This code snippet provides a foundation for training an encoder-only transformer
 
 
 ### References:
-1) Peptide transofomer with amsking - https://academic.oup.com/bib/article/24/6/bbad399/7434461
+1) Peptide transofomer with masking - https://academic.oup.com/bib/article/24/6/bbad399/7434461
 code - https://github.com/horsepurve/DeepB3P3/blob/main/DeepB3P3.py
 2) PeptideBert - https://pubs.acs.org/doi/10.1021/acs.jpclett.3c02398
 3) ProtTrans: Towards Cracking the Language of Life's Code Through Self-Supervised Deep Learning and High Performance Computing - (https://arxiv.org/abs/2007.06225)

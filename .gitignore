@@ -5,3 +5,6 @@ __pycache__/
 checkpoints/
 .DS_Store
 .cursorignore
+
+wandb/*
+logs/*
